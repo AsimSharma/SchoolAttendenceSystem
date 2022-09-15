@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import {TableContainer,Table,TableHead,TableRow,TableCell} from "@mui/material"
 import api from '../service/api'
 const Userdetails = () => {
