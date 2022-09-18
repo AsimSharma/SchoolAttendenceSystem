@@ -26,19 +26,26 @@ class regcontroller{
  async userlog(req,res){
 try{
 const email=req.body.Email;
-// const passw=req.body.Password;
-const response= registermodel.findOne({Email:email})
+const passw=req.body.Password;
+const response=await  registermodel.findOne({Email:email})
 
 console.log(response)
-// const  matching=bcrypt.compareSync(passw,response.Password)
-// console.log(matching)
+const  matching=bcrypt.compareSync(passw,response.Password)
+console.log(matching)
+if (matching){
+  //jwt
+  const token= jwt.sign({id:response._id,Username:response.Name},"mysecretkey")
+  res.json({sucess:true,token})
+  
+}else{
+  res.json("loggin failled")
+}
 
 }catch(e){
     res.status(404).json({message:e.message,success:false,stack:e.stack})
 }
  }
-  
-  
+ 
 }
 
 export default regcontroller;
