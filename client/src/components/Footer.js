@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from './Button'
-import { Link,Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 export default function Footer() {
@@ -25,6 +25,7 @@ export default function Footer() {
                     <div class='footer-link-items'>
                         <h2>About Us</h2>
                         <Link to='/sign-up'>How it works</Link>
+                        <Link to='/'>Testimonials</Link>
                         <Link to='/'>Careers</Link>
                         <Link to='/'>Investors</Link>
                         <Link to='/'>Terms of Service</Link>
@@ -40,17 +41,17 @@ export default function Footer() {
                 <div className='footer-link-wrapper'>
                     <div class='footer-link-items'>
                         <h2>Videos</h2>
-                        <Link to='/'>Demo Video</Link>
+                        <Link to='/'>Submit Video</Link>
                         <Link to='/'>Ambassadors</Link>
                         <Link to='/'>Agency</Link>
                         <Link to='/'>Influencer</Link>
                     </div>
                     <div class='footer-link-items'>
                         <h2>Social Media</h2>
-                        <a href="https://www.instagram.com/mlmsplatform/" target="_blank" rel="noreferrer">Instagram</a>
-                        <a href="https://www.facebook.com/mlmsplatform" target="_blank" rel="noreferrer">facebook</a>
-                        <a href="https://www.youtube.com/channel/UCqlFi8RhbHz5mXXbgVakR5A" target="_blank" rel="noreferrer">YouTube</a>
-                        <a href="www.twitter.com" target="_blank" rel="noreferrer">Twitter</a>
+                        <Link to='/'>Instagram</Link>
+                        <Link to='/'>Facebook</Link>
+                        <Link to='/'>Youtube</Link>
+                        <Link to='/'>Twitter</Link>
                     </div>
                 </div>
             </div>

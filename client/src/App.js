@@ -9,7 +9,6 @@ import SignUp from './components/pages/SignUp';
 import LoginUi from './components/LoginUi';
 import Register from './components/Register';
 import Userdetails from './components/Admin/Userdetails';
-import Adminlogin from './components/Admin/Adminlogin';
 function App() {
   return (
     <>
@@ -22,8 +21,7 @@ function App() {
           <Route path='/sign-up' element={<SignUp/>}/> <Route/>
           <Route path='/login' element={<LoginUi/>}/> <Route/>
           <Route path='/register'element={<Register/>}/> <Route/>
-          <Route path='/adminpage'element={<Userdetails/>}/> <Route/>
-          <Route path='/admin'element={<Adminlogin/>}/> <Route/>
+          <Route path='/admin'element={<Userdetails/>}/> <Route/>
         </Routes>
       </Router>
 
