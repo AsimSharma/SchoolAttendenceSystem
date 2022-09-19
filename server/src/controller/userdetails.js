@@ -24,4 +24,15 @@ async deluser(req,res){
     res.status(500).json({message:e.message,stack:e.stack})
   }
 }
+//edit by id
+async edituser(req,res){
+  const id=req.params.id
+  try{
+   const response=await registermodel.findById({_id:id})
+   res.status(200).json({success:true,response})
+  }catch(e){
+
+    res.status(500).json({success:false,message:e.message,stack:e.stack})
+  }
+}
 }

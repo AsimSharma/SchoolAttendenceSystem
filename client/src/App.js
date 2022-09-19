@@ -9,6 +9,7 @@ import SignUp from './components/pages/SignUp';
 import LoginUi from './components/LoginUi';
 import Register from './components/Register';
 import Userdetails from './components/Admin/Userdetails';
+import Edit from './components/Edit';
 function App() {
   return (
     <>
@@ -22,6 +23,8 @@ function App() {
           <Route path='/login' element={<LoginUi/>}/> <Route/>
           <Route path='/register'element={<Register/>}/> <Route/>
           <Route path='/admin'element={<Userdetails/>}/> <Route/>
+         
+          <Route path='/edit/:id'element={<Edit/>}/> <Route/>
         </Routes>
       </Router>
 
