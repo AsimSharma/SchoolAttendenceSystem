@@ -11,7 +11,7 @@ const Userdetails = () => {
   }]
 
  const[users,setusers]=useState([])
-
+const[searchstudent,setsearchstudent]=useState("")
  useEffect(() => {
   const getuser=async()=>{
       try{
@@ -37,7 +37,10 @@ const Userdetails = () => {
   
  }
  
- 
+ const search=(e)=>{
+  setsearchstudent(e.target.value)
+  console.log(searchstudent)
+ }
  
   return (
    
@@ -51,7 +54,7 @@ const Userdetails = () => {
     <TableCell style={styles}> Name</TableCell>
     <TableCell style={styles}> Email</TableCell>
     <TableCell style={styles}> Phone</TableCell>
-   
+    <input onChange={search} style={{"borderRadius":"10px","marginLeft":"10px","textAlign":"center"}} type="text" placeholder='search student....' />
     </TableRow>
   {users.map((data,index)=>{
     
@@ -60,7 +63,8 @@ const Userdetails = () => {
     <TableCell>{data.Name}</TableCell>
     <TableCell>{data.Email}</TableCell>
     <TableCell>{data.Phone}</TableCell>
-    <Button variant="contained">Delete</Button>
+    <Button variant="contained" style={{"width":"100px","marginLeft":"60px","marginRight":"30px","backgroundColor":"red"}}>Delete</Button>
+    <Button variant="contained" style={{"width":"100px","backgroundColor":"yellowgreen"}}>Edit</Button>
       
     </TableRow>
   

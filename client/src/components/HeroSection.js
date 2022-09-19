@@ -5,7 +5,7 @@ import './HeroSection.css'
 function HeroSection() {
     return (
         <div className='hero-container'>
-            
+       
             <h1>School Attendence System</h1>
             <p>What are you waiting for?</p>
             <div className="hero-btns">

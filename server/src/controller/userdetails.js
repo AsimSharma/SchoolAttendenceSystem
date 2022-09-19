@@ -13,10 +13,12 @@ export default class Detailscontroller{
   }
 //delete
 async deluser(req,res){
+  const id=req.params.id;
   try{
-   const id=req.params.id;
-   const response= await registermodel.delete({_id:id})
+   
+   const response= await registermodel.findOneAndDelete({_id:id})
    res.status(200).json({success:true})
+  
   }catch(e){
     console.log(e)
     res.status(500).json({message:e.message,stack:e.stack})
