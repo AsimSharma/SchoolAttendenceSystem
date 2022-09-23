@@ -1,4 +1,3 @@
-
 import mongoose from "mongoose";
 
 const register=new mongoose.Schema({
@@ -24,9 +23,6 @@ Phone:{
     required:true,
     type:Number,
     minLength:10,
-},
-isAdmin:{
-    type:Boolean,
 }
 
 

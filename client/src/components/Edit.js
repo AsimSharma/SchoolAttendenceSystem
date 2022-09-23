@@ -12,12 +12,7 @@ import api from "./service/api"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const users={
-    Name:"",
-    Email:"",
-    Password:"",
-    Phone:""
-}
+
 const LoginUi = () => {
  const navigate=useNavigate();
 const {id}=useParams();
@@ -74,7 +69,7 @@ console.log(response.data)
            </div>
          </div>
          <div>
-           <h1>SignUp Page</h1>
+           <h1>Edit Page</h1>
            <div className="second-input" style={{"margin":"20px"}}>
 
              <img src={name} alt="Name" className="email"/>
@@ -84,22 +79,17 @@ console.log(response.data)
              <img src={email} alt="Email" className="email"/>
              <input  onChange={push} name="Email" type="email" value={user.Email} placeholder="Enter your Email" className="name"/>
            </div>
-           <div className="second-input">
-             <img src={pass} alt="pass"  className="email"/>
-             <input  onChange={push} name="Password" type="password" value={user.Password} placeholder="Enter your password" className="name"/>
-           </div>
+          
            <div className="second-input">
              <img src={phone} alt="phone" className="email"/>
              <input onChange={push} name="Phone" type="phone" value={user.Phone} placeholder="Enter your phone" className="name"/>
            </div>
            
           <div className="login-button">
-          <button onClick={trigger}>Sign Up</button>
+          <button style={{"width":"150px","borderRadius":"20px","backgroundColor":"green"}} onClick={trigger}>update</button>
           </div>
            
-            <p className="link">
-              <a href="#">Forgot password ?</a>
-            </p>
+           
  
          </div>
        </div>

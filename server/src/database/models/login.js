@@ -1,31 +1,18 @@
-
-// import mongoose from "mongoose";
-
-// const login=new mongoose.Schema({
-    
-    
-//     Email:{
-//         required:true,
-//         type:String,
-       
-        
-//     },
-//     Password:{
-//         required:true,
-//         type:String,
-//         minLength:8,
-       
-// },
-// Phone:{
-//     required:true,
-//     type:Number,
-//     minLength:10,
-// }
-
-
-    
-    
-
-// })
-// const loginmodel=new mongoose.model("userlogin",login)
-// export default loginmodel;
+import mongoose from "mongoose"
+const adminschema=new mongoose.Schema({
+    Email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    Password:{
+     minlength:8,
+     required:true,
+     type:String,
+    },
+    isAdmin:{
+        type:Boolean
+    }
+})
+const adminmodel=new mongoose.model("adminlogin",adminschema)
+export default adminmodel;

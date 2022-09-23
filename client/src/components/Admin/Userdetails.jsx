@@ -2,13 +2,11 @@ import React,{useState,useEffect} from 'react'
 import {TableContainer,Table,TableHead,TableRow,TableCell,Button} from "@mui/material"
 import api from '../service/api'
 import {Link, useNavigate } from "react-router-dom"
+
 const Userdetails = () => {
 
   const navigate=useNavigate();
-  const data=[{
-    "name":"asim sharma",
-    "age":"20",
-  }]
+  
 
  const[users,setusers]=useState([])
 const[searchstudent,setsearchstudent]=useState('')

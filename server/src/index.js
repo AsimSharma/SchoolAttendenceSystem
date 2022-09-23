@@ -2,6 +2,7 @@ import express from "express";
 import connection from "./database/connection/conn.js";
 import router from "./router/auth.js"
 import userrouter from "./router/userdetails.js";
+import adminroute from "./router/adminlog.js"
 import cors from "cors"
 const app=express();
 app.get("/",(req,res)=>{
@@ -15,6 +16,7 @@ app.use(cors())
 //routing
 app.use("/user",router)
 app.use("/admin",userrouter)
+app.use("/adminlog",adminroute)
 app.listen(8000,()=>{
     connection()
 

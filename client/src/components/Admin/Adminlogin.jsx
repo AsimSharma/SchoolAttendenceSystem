@@ -1,28 +1,20 @@
-import "./style/LoginUi.css"
-import profile from "./../images/a.png";
-import email from "./../images/email.jpg";
-import pass from "./../images/pass.png";
+import "../style/LoginUi.css"
+import profile from "../../images/a.png";
+import email from "../../images/email.jpg";
+import pass from "../../images/pass.png";
 import React,{useState} from 'react'
 import { Link,  useNavigate } from "react-router-dom";
-import api from "./service/api";
+
 
 const LoginUi = () => {
   const[user,setuser]=useState({})
 const navigate=useNavigate()
- const trigger=(e)=>{
-  setuser({...user,[e.target.value]:e.target.name})
+
+ 
+ const logindata=(e)=>{
+    console.log(e.target.value)
+    setuser({...user,[e.target.value]:e.target.name})
   console.log(user)
- }
- const log=async()=>{
-  try{
-  const response= await api.post("/user/log",{...user})
-  console.log(response)
-  
-  
-  }catch(e){
-  console.log("error while sending data from from login",e)
-  }
-  
  }
   return (
     <>
@@ -37,22 +29,20 @@ const navigate=useNavigate()
            </div>
          </div>
          <div>
-           <h1>Login Page</h1>
+           <h1>Adminlogin Page</h1>
            <div>
              <img src={email} alt="email" className="email"/>
-             <input type="text" onChange={trigger} name="Email"  placeholder="Email" className="name"/>
+             <input onChange={logindata} name={user.Email} type="text"   placeholder="Email" className="name"/>
            </div>
            <div className="second-input">
              <img src={pass} alt="pass" className="email"/>
-             <input type="password" onChange={trigger} name="Password" placeholder="password" className="name"/>
+             <input onChange={logindata} name={user.Password} type="password"  placeholder="password" className="name"/>
            </div>
           <div className="login-button">
-          <button onClick={log}>Login</button>
+          <button style={{"backgroundColor":"green","width":"300px"}} >Login</button>
           </div>
            
-            <p className="link">
-              <a href="#">Forgot password ?</a> Or <Link to={"/register"}>Sign Up</Link>
-            </p>
+            
  
          </div>
        </div>
