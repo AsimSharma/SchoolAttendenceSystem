@@ -3,6 +3,7 @@ import connection from "./database/connection/conn.js";
 import router from "./router/auth.js"
 import userrouter from "./router/userdetails.js";
 import adminroute from "./router/adminlog.js"
+import bodyParser from "body-parser";
 import cors from "cors"
 const app=express();
 app.get("/",(req,res)=>{
@@ -12,10 +13,15 @@ app.get("/about",(req,res)=>{
     res.send("this is about ")
 })
 app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors())
 //routing
 app.use("/user",router)
+
+
 app.use("/admin",userrouter)
+
+//admin
 app.use("/adminlog",adminroute)
 app.listen(8000,()=>{
     connection()

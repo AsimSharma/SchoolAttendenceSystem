@@ -54,5 +54,33 @@ async asim(req,res){
   else{
 res.send("you are not allowed  to enrer")
   }
+  
 }
+
+
+//serch filter
+
+async searchuser(req,res){
+  const {search}=req.query;
+  try{
+
+    if(search)  
+    {
+    const data=await registermodel.find({$or:[{Name:search},{Email:search}]});
+    
+    res.json(data)
+    }else{
+      res.json("there is no serch")
+    }
+    
+
+  }
+  catch(err){
+    res.json({stack:err.stack})
+console.log(search)
+
+  }
+
+}
+
 }

@@ -3,13 +3,20 @@ import {TableContainer,Table,TableHead,TableRow,TableCell,Button} from "@mui/mat
 import api from '../service/api'
 import {Link, useNavigate } from "react-router-dom"
 
+
+
 const Userdetails = () => {
 
   const navigate=useNavigate();
   
 
  const[users,setusers]=useState([])
-const[searchstudent,setsearchstudent]=useState('')
+ const [datatem, setdatatem] = useState([])
+
+const [input, setinput] = useState('')
+
+
+
  useEffect(() => {
   const getuser=async()=>{
       try{
@@ -17,6 +24,7 @@ const[searchstudent,setsearchstudent]=useState('')
        
        console.log(response.data)
        setusers(response.data.response)
+       setdatatem(response.data.response)
     
       }catch(e){
           console.log("error while get data",e)
@@ -26,6 +34,35 @@ const[searchstudent,setsearchstudent]=useState('')
  
  console.log(users)
  }, [])
+
+
+ useEffect(() => {
+
+  const searchfilter=async()=>{
+    try{
+
+      const response =await api.get(`/admin/searchfilter?search=${input}`)
+      setusers(response.data)
+
+      console.log(response.data.response)
+      console.log(response.data)
+
+    }catch(err){
+      console.log(err)
+    }
+
+
+  }
+
+  if(input) searchfilter();
+  else{
+    setusers(datatem)
+  }
+
+   
+   
+ }, [input])
+ 
 
   const styles={
   color:"white",
@@ -37,8 +74,8 @@ const[searchstudent,setsearchstudent]=useState('')
  }
  
  const search=(e)=>{
-  setsearchstudent(e.target.value)
-  console.log(searchstudent)
+  setinput(e.target.value);
+  console.log(input)
   
  }
  const deluser=async(id,idx)=>{
@@ -75,8 +112,7 @@ console.log(e)
     <TableCell style={styles}> Phone</TableCell>
     <input onChange={search} style={{"borderRadius":"5px","textAlign":"center","height":"50px" ,"marginLeft":"10px"}} type="text" placeholder='search student....' />
     </TableRow>
-  {users.map((data,index)=>{
-    
+  {users.length>0 ?users.map((data,index)=>{
     return<TableRow key={index}>
     <TableCell >{index}</TableCell>
     <TableCell>{data.Name}</TableCell>
@@ -88,7 +124,7 @@ console.log(e)
     </TableRow>
   
     
-   })}
+   }):"user not found"}
   
   
 

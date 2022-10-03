@@ -2,24 +2,52 @@ import "./style/LoginUi.css"
 import profile from "./../images/a.png";
 import email from "./../images/email.jpg";
 import pass from "./../images/pass.png";
-import React,{useState} from 'react'
+import React,{useContext, useState} from 'react'
 import { Link,  useNavigate } from "react-router-dom";
 import api from "./service/api";
 
+//context 
+
+import {loginStart,loginsucess,loginfaliled} from "../context/authCont/authAction.js"
+import {Authcontext} from "../context/authCont/authContext.js"
+
+
+// const users={
+//   Email:"",
+//   Password:""
+// }
+
+
 const LoginUi = () => {
-  const[user,setuser]=useState({})
+
+  const {dispatch} = useContext(Authcontext);
+
+
+  const[user,setuser]=useState({
+
+  })
 const navigate=useNavigate()
+
+
  const trigger=(e)=>{
-  setuser({...user,[e.target.value]:e.target.name})
+  setuser({...user,[e.target.name]:e.target.value})
   console.log(user)
  }
+
+
+
+
  const log=async()=>{
+  dispatch(loginStart())
   try{
   const response= await api.post("/user/log",{...user})
-  console.log(response)
+  console.log(response.data)
+  dispatch(loginsucess(response.data))
   
   
   }catch(e){
+
+    dispatch(loginfaliled())
   console.log("error while sending data from from login",e)
   }
   
@@ -44,7 +72,7 @@ const navigate=useNavigate()
            </div>
            <div className="second-input">
              <img src={pass} alt="pass" className="email"/>
-             <input type="password" onChange={trigger} name="Password" placeholder="password" className="name"/>
+             <input type="text" onChange={trigger} name="Password" placeholder="password" className="name"/>
            </div>
           <div className="login-button">
           <button onClick={log}>Login</button>

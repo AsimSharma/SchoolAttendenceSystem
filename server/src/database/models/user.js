@@ -23,8 +23,15 @@ Phone:{
     required:true,
     type:Number,
     minLength:10,
-}
+},
 
+isAdmin:{
+
+    type:Boolean,
+    require:true,
+    default:false,
+
+}
 
     
     
