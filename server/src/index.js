@@ -13,8 +13,7 @@ app.get("/about",(req,res)=>{
     res.send("this is about ")
 })
 app.use(express.json())
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true })); app.use(cors())
 //routing
 app.use("/user",router)
 

@@ -8,4 +8,7 @@ const admincontroller=new AdminController;
 
 //admin login
 adminroute.post("/admin",admincontroller.adminlog)
+
+
+
 export default adminroute;
