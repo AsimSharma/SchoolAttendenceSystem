@@ -7,4 +7,9 @@ router.post("/reg",usercontroller.userreg)
 router.post("/log",usercontroller.userlog)
 
 
+
+//attendence
+router.post("/attandence",usercontroller.attt)
+
+
 export default router;

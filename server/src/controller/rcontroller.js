@@ -2,6 +2,7 @@ import registermodel from "../database/models/user.js"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import "dotenv/config"
+import atttmodel from "../database/models/attendence.js";
 // import"dotenv/config";
 
 
@@ -48,11 +49,12 @@ if (matching){
     Name:response.Name,
     Email:response.Email,
     sucess:true,
+    isAdmin:response.isAdmin,
     token,
 
 
   })
-  console.log(response)
+  
   
 }else{
   res.json("loggin failled")
@@ -77,6 +79,27 @@ if (matching){
 //     res.status(404).json({success:false,message:e.message,stack:e.stack})
 //   }
 //  }
+
+
+//
+ async attt(req,res){
+  try{
+
+    const response= new atttmodel({...req.body})
+    const data= await response.save();
+    res.send(data)
+
+  
+  }catch(err){
+    res.send({stack:err.stack},err)
+    console.log(err)
+  }
+
+
+ }
+
+
+
 }
 
 export default regcontroller;

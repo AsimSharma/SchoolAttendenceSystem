@@ -1,11 +1,18 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, useContext} from 'react'
 import {TableContainer,Table,TableHead,TableRow,TableCell,Button} from "@mui/material"
 import api from '../service/api'
 import {Link, useNavigate } from "react-router-dom"
 
 
+import {logout} from "../../../src/context/authCont/authAction"
+
+import {Authcontext} from "../../context/authCont/authContext"
+
+
 
 const Userdetails = () => {
+
+  const {dispatch} = useContext(Authcontext)
 
   const navigate=useNavigate();
   
@@ -111,6 +118,22 @@ console.log(e)
     <TableCell style={styles}> Email</TableCell>
     <TableCell style={styles}> Phone</TableCell>
     <input onChange={search} style={{"borderRadius":"5px","textAlign":"center","height":"50px" ,"marginLeft":"10px"}} type="text" placeholder='search student....' />
+   <Link to={"/register"}>  <Button style={{"margin":"10px","width":"60px","textDecoration":"none"}} variant='contained'>Add</Button> 
+   
+   </Link>
+
+   
+   <Button variant="contained"  style={{"width":"100px","height" :"50px"}} onClick={()=>dispatch(logout())}>
+   logout
+   </Button>
+
+   
+   <Button variant="contained"  style={{"width":"100px","height" :"50px"}} onClick={()=>navigate('/result',{state:{...users}})}>
+   result
+   </Button>
+   
+  
+   
     </TableRow>
   {users.length>0 ?users.map((data,index)=>{
     return<TableRow key={index}>
@@ -124,7 +147,7 @@ console.log(e)
     </TableRow>
   
     
-   }):"user not found"}
+   }):"please enter a valid full name"}
   
   
 

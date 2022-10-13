@@ -1,6 +1,7 @@
 import React from 'react'
 import CardItem from './CardItem'
 import './Cards.css'
+import image from "../images/img-9.jpg"
 
 function Cards() {
     return (
@@ -10,7 +11,8 @@ function Cards() {
                 <div className="cards__wrapper">
                     <ul className="cards__items">
                         <CardItem 
-                            src={require('../images/img-9.jpg').default}
+                            src={image}
+                            
                             text="First term Notices"
                             label="Exam Notice"
                             path="/services"

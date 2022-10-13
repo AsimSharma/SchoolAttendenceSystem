@@ -74,6 +74,12 @@
   .menu-icon {
     display: none;
   }
+
+
+  .navlist{
+    list-style-type: none;
+    color: red;
+  }
   
   @media screen and (max-width: 960px) {
     .NavbarItems {

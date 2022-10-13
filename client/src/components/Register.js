@@ -31,7 +31,7 @@ const LoginUi = () => {
   const response=await api.post("/user/reg",{...user})
  
    
-    navigate("/")
+    navigate("/admin")
     toast.success("succesfully data send in to database")
   
   console.log(response)
@@ -78,9 +78,7 @@ const LoginUi = () => {
           <button style={{"width":"150px","borderRadius":"20px","backgroundColor":"green","marginBottom":"10px"}} onClick={trigger}>Sign Up</button>
           </div>
            
-            <p className="link">
-              <a href="#">Forgot password ?</a>
-            </p>
+          
  
          </div>
        </div>

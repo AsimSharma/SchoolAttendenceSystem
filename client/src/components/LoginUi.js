@@ -44,7 +44,7 @@ const navigate=useNavigate()
   console.log(response.data)
   dispatch(loginsucess(response.data))
   
-  
+  navigate("/admin")
   }catch(e){
 
     dispatch(loginfaliled())
@@ -68,7 +68,7 @@ const navigate=useNavigate()
            <h1>Login Page</h1>
            <div>
              <img src={email} alt="email" className="email"/>
-             <input type="text" onChange={trigger} name="Email"  placeholder="Email" className="name"/>
+             <input type="text" onChange={trigger} name="Email"   placeholder="Email" className="name"/>
            </div>
            <div className="second-input">
              <img src={pass} alt="pass" className="email"/>
@@ -78,9 +78,7 @@ const navigate=useNavigate()
           <button onClick={log}>Login</button>
           </div>
            
-            <p className="link">
-              <a href="#">Forgot password ?</a> Or <Link to={"/register"}>Sign Up</Link>
-            </p>
+           
  
          </div>
        </div>
