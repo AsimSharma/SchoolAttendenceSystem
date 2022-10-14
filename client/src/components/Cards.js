@@ -2,6 +2,8 @@ import React from 'react'
 import CardItem from './CardItem'
 import './Cards.css'
 import image from "../images/img-9.jpg"
+import image2 from "../images/img-2.jpg"
+import image3 from "../images/img-10.jpg"
 
 function Cards() {
     return (
@@ -18,7 +20,7 @@ function Cards() {
                             path="/services"
                         />
                         <CardItem 
-                            src={require('../images/img-2.jpg').default}
+                            src={image2}
                             text="Parents Meeting Notice"
                             label="Meeting Notice"
                             path="/services"
@@ -26,13 +28,13 @@ function Cards() {
                     </ul>
                     <ul className="cards__items">
                         <CardItem 
-                            src={require('../images/img-10.jpg').default}
+                            src={image3}
                             text="extracurricular activities Notice"
                             label=""
                             path="/services"
                         />
                         <CardItem 
-                            src={require('../images/img-9.jpg').default}
+                            src={image}
                             text="Final Exam Notices"
                             label="Exam Notices"
                             path="/services"
