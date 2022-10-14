@@ -8,6 +8,9 @@ import {logout} from "../../../src/context/authCont/authAction"
 
 import {Authcontext} from "../../context/authCont/authContext"
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Userdetails = () => {
@@ -123,12 +126,12 @@ console.log(e)
    </Link>
 
    
-   <Button variant="contained"  style={{"width":"100px","height" :"50px"}} onClick={()=>dispatch(logout())}>
+   <Button variant="contained"  style={{"width":"100px","height" :"50px","backgroundColor":"red"}} onClick={()=>dispatch(logout())}>
    logout
    </Button>
 
    
-   <Button variant="contained"  style={{"width":"100px","height" :"50px"}} onClick={()=>navigate('/result',{state:{...users}})}>
+   <Button variant="contained"  style={{"width":"100px","height" :"50px","margin":"5px","backgroundColor":"green"}} onClick={()=>navigate('/result',{state:{...users}})}>
    result
    </Button>
    
