@@ -17,6 +17,7 @@ const Userdetails = () => {
 
   const {dispatch} = useContext(Authcontext)
 
+
   const navigate=useNavigate();
   
 
@@ -99,6 +100,7 @@ const [input, setinput] = useState('')
      return index !==idx; //
     })
     setusers(newuserlist)
+    toast.success("successfully delete user")
     
   }else{
     console.log("unable to delete")
@@ -112,6 +114,7 @@ console.log(e)
    
    
     <div>
+    <ToastContainer/>
     <TableContainer style={{"backgroundColor":""}}>
     <Table>
     <TableHead>
@@ -121,17 +124,17 @@ console.log(e)
     <TableCell style={styles}> Email</TableCell>
     <TableCell style={styles}> Phone</TableCell>
     <input onChange={search} style={{"borderRadius":"5px","textAlign":"center","height":"50px" ,"marginLeft":"10px"}} type="text" placeholder='search student....' />
-   <Link to={"/register"}>  <Button style={{"margin":"10px","width":"60px","textDecoration":"none"}} variant='contained'>Add</Button> 
+   <Link to={"/register"}>  <Button style={{"margin":"10px","width":"60px","textDecoration":"none","height":"30px","backgroundColor":"black"}} variant='contained'>Add</Button> 
    
    </Link>
 
    
-   <Button variant="contained"  style={{"width":"100px","height" :"50px","backgroundColor":"red"}} onClick={()=>dispatch(logout())}>
+   <Button variant="contained"  style={{"width":"100px","height" :"50px","backgroundColor":"red","height":"30px"}} onClick={()=>dispatch(logout())}>
    logout
    </Button>
 
    
-   <Button variant="contained"  style={{"width":"100px","height" :"50px","margin":"5px","backgroundColor":"green"}} onClick={()=>navigate('/result',{state:{...users}})}>
+   <Button variant="contained"  style={{"width":"100px","height" :"50px","margin":"5px","backgroundColor":"green","height":"30px"}} onClick={()=>navigate('/result',{state:{...users}})}>
    result
    </Button>
    
@@ -144,14 +147,15 @@ console.log(e)
     <TableCell>{data.Name}</TableCell>
     <TableCell>{data.Email}</TableCell>
     <TableCell>{data.Phone}</TableCell>
-    <Button onClick={()=>deluser(data._id,index)} variant="contained" style={{"width":"100px","height" :"30px",  "marginLeft":"60px","marginRight":"30px","backgroundColor":"red"}}>Delete</Button>
-   <Link style={{"textDecoration":"none"}} to={`/edituser/${data._id}`}> <Button variant="contained" style={{"width":"100px","backgroundColor":"yellowgreen","height" :"30px"}} >Edit</Button></Link>
+    <Button onClick={()=>deluser(data._id,index)} variant="contained" style={{"width":"60px","height" :"30px",  "marginLeft":"60px","marginRight":"30px","backgroundColor":"red"}}>Delete</Button>
+   <Link style={{"textDecoration":"none"}} to={`/edituser/${data._id}`}> <Button variant="contained" style={{"width":"60px","backgroundColor":"yellowgreen","height" :"30px"}} >Edit</Button></Link>
       
     </TableRow>
   
     
    }):"please enter a valid full name"}
   
+
   
 
   

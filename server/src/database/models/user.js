@@ -23,6 +23,7 @@ Phone:{
     required:true,
     type:Number,
     minLength:10,
+    maxLength:10,
 },
 
 isAdmin:{

@@ -44,9 +44,9 @@ console.log(response.data)
     
   const response=await api.patch(`/admin/update/${idx}`,{...user})
    console.log(response.data)
-    
+   toast.success("succesfully user updated")
     navigate("/admin")
-    toast.success("succesfully data send in to database")
+
   
   console.log(response)
   }catch(e){
